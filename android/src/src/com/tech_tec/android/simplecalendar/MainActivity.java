@@ -1,4 +1,4 @@
-package com.example.src;
+package com.tech_tec.android.simplecalendar;
 
 import android.app.Activity;
 import android.os.Bundle;
