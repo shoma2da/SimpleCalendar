@@ -8,7 +8,11 @@ import android.widget.TextView;
 import com.tech_tec.android.simplecalendar.R;
 
 public class HeaderView extends LinearLayout {
-
+    
+    public HeaderView(Context context) {
+        super(context);
+    }
+    
     public HeaderView(Context context, int index) {
         super(context);
         
