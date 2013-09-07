@@ -32,36 +32,7 @@ public class CellAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (position < COLUMN_NUMBER) {
-            View view = mInflater.inflate(R.layout.layout_header, null);
-            TextView textView = (TextView)view.findViewById(R.id.text);
-            
-            switch (position) {
-            case 0:
-                textView.setText("月");
-                break;
-            case 1:
-                textView.setText("火");
-                break;
-            case 2:
-                textView.setText("水");
-                break;
-            case 3:
-                textView.setText("木");
-                break;
-            case 4:
-                textView.setText("金");
-                break;
-            case 5:
-                textView.setText("土");
-                break;
-            case 6:
-                textView.setText("日");
-                break;
-            default:
-                break;
-            }
-            
-            return view;
+            return new HeaderView(getContext(), position);
         }
         
         View view = mInflater.inflate(R.layout.layout_cell, null);
