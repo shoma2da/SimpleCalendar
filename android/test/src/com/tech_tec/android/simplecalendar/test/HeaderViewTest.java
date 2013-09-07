@@ -23,4 +23,17 @@ public class HeaderViewTest extends AndroidTestCase {
         assertEquals(expected, textView.getText().toString());
     }
     
+    public void test範囲外のindexでは例外が飛ぶ() {
+        doTest範囲外のindexでは例外が飛ぶ(-1);
+        doTest範囲外のindexでは例外が飛ぶ(7);
+    }
+    private void doTest範囲外のindexでは例外が飛ぶ(int index) {
+        try {
+            new HeaderView(getContext(), index);
+            fail("例外が飛ぶはず");
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+        }
+    }
+    
 }
