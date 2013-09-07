@@ -9,13 +9,14 @@ import android.widget.TextView;
 public class HeaderViewTest extends AndroidTestCase {
     
     public void test表示文字列が正しいか() {
-        doTest表示文字列が正しいか(0, "日");
-        doTest表示文字列が正しいか(1, "月");
-        doTest表示文字列が正しいか(2, "火");
-        doTest表示文字列が正しいか(3, "水");
-        doTest表示文字列が正しいか(4, "木");
-        doTest表示文字列が正しいか(5, "金");
-        doTest表示文字列が正しいか(6, "土");
+        String[] days = getContext().getResources().getStringArray(R.array.days);
+        doTest表示文字列が正しいか(0, days[0]);
+        doTest表示文字列が正しいか(1, days[1]);
+        doTest表示文字列が正しいか(2, days[2]);
+        doTest表示文字列が正しいか(3, days[3]);
+        doTest表示文字列が正しいか(4, days[4]);
+        doTest表示文字列が正しいか(5, days[5]);
+        doTest表示文字列が正しいか(6, days[6]);
     }
     private void doTest表示文字列が正しいか(int index, String expected) {
         HeaderView headerView = new HeaderView(getContext(), index);
@@ -31,7 +32,7 @@ public class HeaderViewTest extends AndroidTestCase {
         try {
             new HeaderView(getContext(), index);
             fail("例外が飛ぶはず");
-        } catch (IllegalArgumentException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             assertTrue(true);
         }
     }

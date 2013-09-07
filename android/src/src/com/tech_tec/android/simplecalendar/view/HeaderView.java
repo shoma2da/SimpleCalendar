@@ -23,25 +23,9 @@ public class HeaderView extends LinearLayout {
         textView.setText(getText(context, index));
     }
     
-    String getText(Context context, int index) {
-        switch (index) {
-            case 0:
-                return "日";
-            case 1:
-                return "月";
-            case 2:
-                return "火";
-            case 3:
-                return "水";
-            case 4:
-                return "木";
-            case 5:
-                return "金";
-            case 6:
-                return "土";
-            default:
-                throw new IllegalArgumentException("曜日の対象外indexを渡している");
-        }
+    String getText(Context context, int index) throws ArrayIndexOutOfBoundsException {
+        String[] days = context.getResources().getStringArray(R.array.days);
+        return days[index];
     }
     
 }
