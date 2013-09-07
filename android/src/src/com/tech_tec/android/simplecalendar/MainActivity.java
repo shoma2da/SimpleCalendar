@@ -15,10 +15,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         GridView gridView = (GridView)findViewById(R.id.calendar);
-        ArrayAdapter<String> adapter = new CellAdapter(this);
+        ArrayAdapter<String> adapter = new CellAdapter(this, gridView);
         gridView.setAdapter(adapter);
         
-        for (int i = 0; i < 31; i++) {
+        for (int i = 0; i < 7 * 6; i++) {
             adapter.add("" + (i + 1));
         }
     }
