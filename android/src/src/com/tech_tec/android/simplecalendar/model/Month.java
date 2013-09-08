@@ -7,6 +7,8 @@ import java.util.Iterator;
 
 public class Month {
     
+    public static final int MAX_DAYS_COUNT = 7 * 6;
+    
     private ArrayList<Day> previousDays = new ArrayList<Day>();
     private ArrayList<Day> days         = new ArrayList<Day>();
     private ArrayList<Day> nextDays     = new ArrayList<Day>();
@@ -14,7 +16,9 @@ public class Month {
     Month() {}
     
     public Month(Date today) {
+        setPreviousDays(today);
         setDays(today);
+        setNextDays(today, this.previsousDaysSize(), this.nextDaysSize());
     }
     
     public Iterator<Day> getDays() {
@@ -23,7 +27,6 @@ public class Month {
     public int daysSize() {
         return this.days.size();
     }
-    
     void setDays(Date today) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);
@@ -37,12 +40,25 @@ public class Month {
         }
     }
     
-    
+    public Iterator<Day> getPreviousDays() {
+        return this.previousDays.iterator();
+    }
+    public int previsousDaysSize() {
+        return this.days.size();
+    }
     void setPreviousDays(Date today) {
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTime(today);
-//        calendar.set(Calendar.DAY_OF_MONTH, 1);
-//        int firstDay = calendar.get(Calendar.DAY_OF_WEEK);
+        //月のはじめの日に移動
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        int firstDay = calendar.get(Calendar.DAY_OF_WEEK);
+        
+        //前月分のデータを追加
+        int count = this.previousDayCount(firstDay);
+        for (int i = 0; i < count; i++) {
+            calendar.add(Calendar.DAY_OF_MONTH, -1);
+            this.previousDays.add(new Day(calendar.getTime()));
+        }
     }
     int previousDayCount(int day) {
         switch (day) {
@@ -65,8 +81,25 @@ public class Month {
         }
     }
 
-    void setNextDays(Date today) {
-        
+    public Iterator<Day> getNextDays() {
+        return this.nextDays.iterator();
+    }
+    public int nextDaysSize() {
+        return this.nextDays.size();
+    }
+    void setNextDays(Date today, int previousDaysCount, int daysCount) {
+        //最終日に移動
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(today);
+        int max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH, max);
+
+        //必要な日にち分をデータ追加
+        int count = MAX_DAYS_COUNT - previousDaysCount - daysCount;
+        for (int i = 0; i < count; i++) {
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            this.nextDays.add(new Day(calendar.getTime()));
+        }
     }
     
 }

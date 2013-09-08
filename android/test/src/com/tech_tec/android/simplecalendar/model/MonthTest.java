@@ -1,13 +1,14 @@
 package com.tech_tec.android.simplecalendar.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import android.test.AndroidTestCase;
 import android.util.Log;
 
 public class MonthTest extends AndroidTestCase {
     
-    public void test曜日に応じて前月の日にちを求める() {
+    public void test曜日に応じて前月の日にち数を求める() {
         Month month = new Month();
         
         assertEquals(7, month.previousDayCount(Calendar.SUNDAY));
@@ -32,6 +33,13 @@ public class MonthTest extends AndroidTestCase {
             assertEquals(max, month.daysSize());
             calendar.add(Calendar.MONTH, 1);
         }
+    }
+    
+    public void test次月分のデータ個数が正しい() {
+        Month month = new Month();
+        month.setNextDays(new Date(), 31, 3);
+        
+        assertEquals(Month.MAX_DAYS_COUNT - 31 - 3, month.nextDaysSize());
     }
     
 }
