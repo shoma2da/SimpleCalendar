@@ -2,13 +2,12 @@ package com.tech_tec.android.simplecalendar;
 
 import java.util.Calendar;
 
-import com.tech_tec.android.simplecalendar.model.Day;
-import com.tech_tec.android.simplecalendar.view.CellAdapter;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
+import com.tech_tec.android.simplecalendar.model.Day;
+import com.tech_tec.android.simplecalendar.view.CellAdapter;
 
 public class MainActivity extends Activity {
 
