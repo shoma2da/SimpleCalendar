@@ -18,7 +18,7 @@ public class Month {
     public Month(Date today) {
         setPreviousDays(today);
         setDays(today);
-        setNextDays(today, this.previsousDaysSize(), this.nextDaysSize());
+        setNextDays(today, this.previsousDaysSize(), this.daysSize());
     }
     
     public Iterator<Day> getDays() {
@@ -44,7 +44,7 @@ public class Month {
         return this.previousDays.iterator();
     }
     public int previsousDaysSize() {
-        return this.days.size();
+        return this.previousDays.size();
     }
     void setPreviousDays(Date today) {
         //月のはじめの日に移動

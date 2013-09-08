@@ -1,7 +1,10 @@
 package com.tech_tec.android.simplecalendar.view;
 
+import java.util.Iterator;
+
 import com.tech_tec.android.simplecalendar.R;
 import com.tech_tec.android.simplecalendar.model.Day;
+import com.tech_tec.android.simplecalendar.model.Month;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -27,6 +30,17 @@ public class CellAdapter extends ArrayAdapter<Day> {
         
         for (int i = 0; i < COLUMN_NUMBER; i++) {
             add(null);
+        }
+    }
+    
+    public void setMonth(Month month) {
+        addDay(month.getPreviousDays());
+        addDay(month.getDays());
+        addDay(month.getNextDays());
+    }
+    void addDay(Iterator<Day> dayIterator) {
+        while (dayIterator.hasNext()) {
+            add(dayIterator.next());
         }
     }
     
