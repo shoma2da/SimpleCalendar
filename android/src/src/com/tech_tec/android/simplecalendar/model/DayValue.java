@@ -8,7 +8,7 @@ public class DayValue {
         mValue = value;
     }
     
-    public int toInt() {
+    public Integer toInt() {
         return mValue;
     }
     

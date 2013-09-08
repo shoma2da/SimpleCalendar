@@ -1,6 +1,7 @@
 package com.tech_tec.android.simplecalendar.view;
 
 import com.tech_tec.android.simplecalendar.R;
+import com.tech_tec.android.simplecalendar.model.Day;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class CellAdapter extends ArrayAdapter<String> {
+public class CellAdapter extends ArrayAdapter<Day> {
     
     public static int COLUMN_NUMBER = 7;
     public static int ROW_NUMBER = 6;
@@ -43,7 +44,7 @@ public class CellAdapter extends ArrayAdapter<String> {
         view.setLayoutParams(params);
         
         TextView textView = (TextView)view.findViewById(R.id.date);
-        textView.setText(getItem(position));
+        textView.setText(getItem(position).getDayValue().toInt().toString());
         
         return view;
     }

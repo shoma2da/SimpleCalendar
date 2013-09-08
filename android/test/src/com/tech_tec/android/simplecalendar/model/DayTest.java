@@ -11,7 +11,7 @@ public class DayTest extends AndroidTestCase {
         doTest渡した日付が正しく取得できるか(1987, 7, 13);
         doTest渡した日付が正しく取得できるか(2013, 9, 8);
     }
-    public void doTest渡した日付が正しく取得できるか(int year, int month, int dayValue) {
+    public void doTest渡した日付が正しく取得できるか(Integer year, Integer month, Integer dayValue) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, dayValue);
         Day day = new Day(calendar.getTime());

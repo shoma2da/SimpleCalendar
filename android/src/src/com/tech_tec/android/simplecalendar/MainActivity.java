@@ -1,5 +1,8 @@
 package com.tech_tec.android.simplecalendar;
 
+import java.util.Calendar;
+
+import com.tech_tec.android.simplecalendar.model.Day;
 import com.tech_tec.android.simplecalendar.view.CellAdapter;
 
 import android.app.Activity;
@@ -15,11 +18,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         GridView gridView = (GridView)findViewById(R.id.calendar);
-        ArrayAdapter<String> adapter = new CellAdapter(this, gridView);
+        CellAdapter adapter = new CellAdapter(this, gridView);
         gridView.setAdapter(adapter);
         
-        for (int i = 0; i < 7 * 6; i++) {
-            adapter.add("" + (i + 1));
+        Calendar calendar = Calendar.getInstance();
+        int max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        for (int i = 0; i < max; i++) {
+            Day day = new Day(calendar.getTime());
+            adapter.add(day);
+
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
     }
 
