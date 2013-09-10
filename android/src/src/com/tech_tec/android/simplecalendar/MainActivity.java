@@ -2,15 +2,14 @@ package com.tech_tec.android.simplecalendar;
 
 import java.util.Date;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.widget.GridView;
 
 import com.tech_tec.android.simplecalendar.model.Month;
 import com.tech_tec.android.simplecalendar.view.CellAdapter;
 
-public class MainActivity extends Activity {
-
+public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +20,5 @@ public class MainActivity extends Activity {
         gridView.setAdapter(adapter);
         adapter.setMonth(new Month(new Date()));
     }
-
+    
 }
