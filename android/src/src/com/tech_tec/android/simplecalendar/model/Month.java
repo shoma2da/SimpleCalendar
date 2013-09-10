@@ -9,6 +9,7 @@ public class Month {
     
     public static final int MAX_DAYS_COUNT = 7 * 6;
     
+    private Date mToday;
     private ArrayList<Day> previousDays = new ArrayList<Day>();
     private ArrayList<Day> days         = new ArrayList<Day>();
     private ArrayList<Day> nextDays     = new ArrayList<Day>();
@@ -19,6 +20,7 @@ public class Month {
         setPreviousDays(today);
         setDays(today);
         setNextDays(today, this.previsousDaysSize(), this.daysSize());
+        mToday = today;
     }
     
     public Iterator<Day> getDays() {
@@ -102,4 +104,14 @@ public class Month {
         }
     }
     
+    public int getYear() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(mToday);
+        return calendar.get(Calendar.YEAR);
+    }
+    public int getMonth() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(mToday);
+        return calendar.get(Calendar.MONTH) + 1;
+    }
 }

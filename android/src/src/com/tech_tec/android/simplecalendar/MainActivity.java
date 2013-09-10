@@ -15,10 +15,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
+        Month month = new Month(new Date());
+        
         GridView gridView = (GridView)findViewById(R.id.calendar);
         CellAdapter adapter = new CellAdapter(this, gridView);
         gridView.setAdapter(adapter);
-        adapter.setMonth(new Month(new Date()));
+        adapter.setMonth(month);
+        
+        getSupportActionBar().setTitle(month.getYear() + "/" + month.getMonth());
     }
     
 }
