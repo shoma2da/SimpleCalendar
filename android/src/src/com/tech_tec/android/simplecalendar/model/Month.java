@@ -2,6 +2,7 @@ package com.tech_tec.android.simplecalendar.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -61,6 +62,7 @@ public class Month {
             calendar.add(Calendar.DAY_OF_MONTH, -1);
             this.previousDays.add(new Day(calendar.getTime()));
         }
+        Collections.reverse(this.previousDays);
     }
     int previousDayCount(int day) {
         switch (day) {
