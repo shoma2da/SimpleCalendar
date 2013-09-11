@@ -4,7 +4,6 @@ import java.util.Date;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +31,6 @@ public class CalendarFragment extends Fragment {
         CellAdapter adapter = new CellAdapter(getActivity(), gridView);
         gridView.setAdapter(adapter);
         adapter.setMonth(month);
-        
-        ActionBarActivity actionBarActivity = ((ActionBarActivity)getActivity());
-        actionBarActivity.setTitle(month.getYear() + "/" + month.getMonth());
         
         return view;
     }
