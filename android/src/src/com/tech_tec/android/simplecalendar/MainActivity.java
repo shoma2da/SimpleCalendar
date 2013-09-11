@@ -1,5 +1,7 @@
 package com.tech_tec.android.simplecalendar;
 
+import java.util.Calendar;
+
 import com.tech_tec.android.simplecalendar.fragment.calendar.CalendarFragment;
 
 import android.os.Bundle;
@@ -23,8 +25,16 @@ public class MainActivity extends ActionBarActivity {
             }
             
             @Override
-            public Fragment getItem(int arg0) {
-                return new CalendarFragment();
+            public Fragment getItem(int position) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.MONTH, position);
+                
+                Bundle bundle = new Bundle();
+                bundle.putLong(CalendarFragment.ARG_BASIS_TIME_IN_MILLIS, calendar.getTime().getTime());
+                
+                Fragment fragment = new CalendarFragment();
+                fragment.setArguments(bundle);
+                return fragment;
             }
         });
     }

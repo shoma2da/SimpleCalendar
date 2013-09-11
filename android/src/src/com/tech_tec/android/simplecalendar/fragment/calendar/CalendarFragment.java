@@ -16,13 +16,17 @@ import com.tech_tec.android.simplecalendar.view.CellAdapter;
 
 public class CalendarFragment extends Fragment {
     
+    public static final String ARG_BASIS_TIME_IN_MILLIS = "basis_time_in_millis";
+    
     public CalendarFragment() { }
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar, null);
         
-        Month month = new Month(new Date());
+        long timeInMillis = getArguments().getLong(ARG_BASIS_TIME_IN_MILLIS);
+        Date date = new Date(timeInMillis);
+        Month month = new Month(date);
         
         GridView gridView = (GridView)view.findViewById(R.id.calendar);
         CellAdapter adapter = new CellAdapter(getActivity(), gridView);
