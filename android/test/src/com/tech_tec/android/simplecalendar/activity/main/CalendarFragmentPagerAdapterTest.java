@@ -5,13 +5,18 @@ import android.test.AndroidTestCase;
 
 public class CalendarFragmentPagerAdapterTest extends AndroidTestCase {
     
+    private CalendarFragmentPagerAdapter mAdapter;
+    
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        FragmentActivity activity = new FragmentActivity();
+        mAdapter = new CalendarFragmentPagerAdapter(activity.getSupportFragmentManager());
+    }
+    
     public void test最大サイズがとても大きい() {
         int max = CalendarFragmentPagerAdapter.MAX_PAGE_NUM;
-        
-        FragmentActivity activity = new FragmentActivity();
-        CalendarFragmentPagerAdapter adapter = new CalendarFragmentPagerAdapter(activity.getSupportFragmentManager());
-        
-        assertEquals(max, adapter.getCount());
+        assertEquals(max, mAdapter.getCount());
     }
     
 }
