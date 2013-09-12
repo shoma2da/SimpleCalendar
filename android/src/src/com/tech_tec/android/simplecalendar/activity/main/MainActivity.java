@@ -1,4 +1,4 @@
-package com.tech_tec.android.simplecalendar;
+package com.tech_tec.android.simplecalendar.activity.main;
 
 import java.util.Calendar;
 
@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v7.app.ActionBarActivity;
 
+import com.tech_tec.android.simplecalendar.R;
+import com.tech_tec.android.simplecalendar.R.id;
+import com.tech_tec.android.simplecalendar.R.layout;
 import com.tech_tec.android.simplecalendar.fragment.calendar.CalendarFragment;
 
 public class MainActivity extends ActionBarActivity {
