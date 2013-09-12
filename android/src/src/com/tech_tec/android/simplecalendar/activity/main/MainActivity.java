@@ -1,6 +1,7 @@
 package com.tech_tec.android.simplecalendar.activity.main;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,27 +22,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
         final ViewPager pager = (ViewPager)findViewById(R.id.pager_calendar);
-        pager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            
-            @Override
-            public int getCount() {
-                return 3;
-            }
-            
-            @Override
-            public Fragment getItem(int position) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTimeInMillis(System.currentTimeMillis());
-                calendar.add(Calendar.MONTH, position);
-                
-                Bundle bundle = new Bundle();
-                bundle.putLong(CalendarFragment.ARG_BASIS_TIME_IN_MILLIS, calendar.getTime().getTime());
-                
-                Fragment fragment = new CalendarFragment();
-                fragment.setArguments(bundle);
-                return fragment;
-            }
-        });
+        pager.setAdapter(new CalendarFragmentPagerAdapter(getSupportFragmentManager(), new Date()));
         pager.setOnPageChangeListener(new OnPageChangeListener() {
             @Override
             public void onPageSelected(int arg0) {
