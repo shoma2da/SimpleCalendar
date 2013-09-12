@@ -61,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
+        pager.setCurrentItem(1);
     }
     
 }
