@@ -13,7 +13,7 @@ public class CalendarFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int arg0) {
+    public Fragment getItem(int position) {
         return null;
     }
 
