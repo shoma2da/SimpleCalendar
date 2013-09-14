@@ -34,9 +34,7 @@ public class CellAdapter extends ArrayAdapter<Day> {
     }
     
     public void setMonth(Month month) {
-        addDay(month.getPreviousDays());
         addDay(month.getDays());
-        addDay(month.getNextDays());
     }
     void addDay(Iterator<Day> dayIterator) {
         while (dayIterator.hasNext()) {
