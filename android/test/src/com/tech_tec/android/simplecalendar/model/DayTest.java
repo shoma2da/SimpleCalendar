@@ -15,7 +15,7 @@ public class DayTest extends AndroidTestCase {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, dayValue);
         Day day = new Day(calendar.getTime());
-        assertEquals(dayValue, day.getDayValue().toInt());
+        assertEquals(dayValue, day.toInt());
     }
     
 }

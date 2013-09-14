@@ -58,7 +58,7 @@ public class CellAdapter extends ArrayAdapter<Day> {
         view.setLayoutParams(params);
         
         TextView textView = (TextView)view.findViewById(R.id.date);
-        textView.setText(getItem(position).getDayValue().toInt().toString());
+        textView.setText(getItem(position).toInt().toString());
         
         return view;
     }

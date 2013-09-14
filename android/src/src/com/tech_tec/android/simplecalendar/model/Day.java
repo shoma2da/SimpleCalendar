@@ -11,9 +11,9 @@ public class Day {
         mDate = date;
     }
     
-    public DayValue getDayValue() {
+    public Integer toInt() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(mDate);
-        return new DayValue(calendar.get(Calendar.DAY_OF_MONTH));
+        return calendar.get(Calendar.DAY_OF_MONTH);
     }
 }
