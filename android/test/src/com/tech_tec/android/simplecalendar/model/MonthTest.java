@@ -22,7 +22,7 @@ public class MonthTest extends AndroidTestCase {
     public void test年数が取得できる() {
         for (int i = 0; i < 200; i++) {
             //1970年から200年分をテスト
-            doTest月数が取得できる(1970 + i);
+            doTest年数が取得できる(1970 + i);
         }
     }
     private void doTest年数が取得できる(int year) {
