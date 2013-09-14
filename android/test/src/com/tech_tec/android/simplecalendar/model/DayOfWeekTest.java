@@ -25,4 +25,26 @@ public class DayOfWeekTest extends TestCase {
         }
     }
     
+    public void testValueOf() {
+        assertEquals(DayOfWeek.SUNDAY, DayOfWeek.valueOf("SUNDAY"));
+        assertEquals(DayOfWeek.MONDAY, DayOfWeek.valueOf("MONDAY"));
+        assertEquals(DayOfWeek.TUESDAY, DayOfWeek.valueOf("TUESDAY"));
+        assertEquals(DayOfWeek.WEDNESDAY, DayOfWeek.valueOf("WEDNESDAY"));
+        assertEquals(DayOfWeek.THURSDAY, DayOfWeek.valueOf("THURSDAY"));
+        assertEquals(DayOfWeek.FRIDAY, DayOfWeek.valueOf("FRIDAY"));
+        assertEquals(DayOfWeek.SATURDAY, DayOfWeek.valueOf("SATURDAY"));
+    }
+    
+    public void testValues() {
+        DayOfWeek[] values = DayOfWeek.values();
+        assertEquals(7, values.length);
+        assertEquals(DayOfWeek.SUNDAY, values[0]);
+        assertEquals(DayOfWeek.MONDAY, values[1]);
+        assertEquals(DayOfWeek.TUESDAY, values[2]);
+        assertEquals(DayOfWeek.WEDNESDAY, values[3]);
+        assertEquals(DayOfWeek.THURSDAY, values[4]);
+        assertEquals(DayOfWeek.FRIDAY, values[5]);
+        assertEquals(DayOfWeek.SATURDAY, values[6]);
+    }
+    
 }
