@@ -19,13 +19,13 @@ public class MonthTest extends AndroidTestCase {
         assertEquals(6, month.previousDayCount(Calendar.SATURDAY));
     }
     
-    public void test月数が取得できる() {
+    public void test年数が取得できる() {
         for (int i = 0; i < 200; i++) {
             //1970年から200年分をテスト
             doTest月数が取得できる(1970 + i);
         }
     }
-    private void doTest月数が取得できる(int year) {
+    private void doTest年数が取得できる(int year) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, year);
         
