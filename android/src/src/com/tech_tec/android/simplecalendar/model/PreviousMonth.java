@@ -11,19 +11,18 @@ public class PreviousMonth {
     }
     
     public int getYear() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(mMonth.getYear(), mMonth.getMonth() - 1, 1);
-        calendar.add(Calendar.MONTH, -1);
-        
-        return calendar.get(Calendar.YEAR);
+        return getCalendar().get(Calendar.YEAR);
     }
     
     public int getMonth() {
+        return getCalendar().get(Calendar.MONTH) + 1;
+    }
+    
+    private Calendar getCalendar() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(mMonth.getYear(), mMonth.getMonth() - 1, 1);
         calendar.add(Calendar.MONTH, -1);
-        
-        return calendar.get(Calendar.MONTH) + 1;
+        return calendar;
     }
     
 }
