@@ -44,4 +44,9 @@ public class Month {
         calendar.setTime(mToday);
         return calendar.get(Calendar.MONTH) + 1;
     }
+    
+    public DayOfWeek getFirstDayOfWeek() {
+        Day firstDay = getDays().next();
+        return firstDay.getDayOfWeek();
+    }
 }

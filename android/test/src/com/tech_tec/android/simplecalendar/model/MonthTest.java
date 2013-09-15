@@ -52,4 +52,28 @@ public class MonthTest extends AndroidTestCase {
         }
     }
     
+    public void 初日の曜日が取得できる() {
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.set(2013, 9 - 1, 1); //初日が日曜日
+        assertEquals(DayOfWeek.SUNDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 7 - 1, 1); //初日が月曜日
+        assertEquals(DayOfWeek.MONDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 1 - 1, 1); //初日が火曜日
+        assertEquals(DayOfWeek.TUESDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 5 - 1, 1); //初日が水曜日
+        assertEquals(DayOfWeek.WEDNESDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 8 - 1, 1); //初日が木曜日
+        assertEquals(DayOfWeek.THURSDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 11 - 1, 1); //初日が金曜日
+        assertEquals(DayOfWeek.FRIDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+
+        calendar.set(2013, 6 - 1, 1); //初日が土曜日
+        assertEquals(DayOfWeek.SATURDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+    }
 }
