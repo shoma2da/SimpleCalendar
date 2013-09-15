@@ -12,7 +12,7 @@ public class MonthFactoryTest extends TestCase {
     }
     public void doTestMonthの生成(int year, int monthValue, int expectedDateSize) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(year, monthValue-1, 1); // 2013/9
+        calendar.set(year, monthValue-1, 1); //月は-1する
         
         MonthFactory factory = new MonthFactory(calendar.getTime());
         Month month = factory.createMonth();
