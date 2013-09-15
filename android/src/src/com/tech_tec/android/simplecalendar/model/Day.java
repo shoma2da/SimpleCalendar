@@ -16,4 +16,10 @@ public class Day {
         calendar.setTime(mDate);
         return calendar.get(Calendar.DAY_OF_MONTH);
     }
+    
+    public DayOfWeek getDayOfWeek() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(mDate);
+        return DayOfWeek.create(calendar.get(Calendar.DAY_OF_MONTH));
+    }
 }
