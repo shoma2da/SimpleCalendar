@@ -18,4 +18,12 @@ public class MonthFactory {
         return mMonthCache;
     }
     
+    public PreviousMonth createPreviousMonth() {
+        return new PreviousMonth(mMonthCache, 0);
+    }
+    
+    public NextMonth createNextMonth() {
+        return new NextMonth(mMonthCache, 0);
+    }
+    
 }

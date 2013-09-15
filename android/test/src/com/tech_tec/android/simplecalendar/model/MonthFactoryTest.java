@@ -1,6 +1,7 @@
 package com.tech_tec.android.simplecalendar.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import junit.framework.TestCase;
 
@@ -19,5 +20,19 @@ public class MonthFactoryTest extends TestCase {
         
         assertEquals(expectedDateSize, month.daysSize());
     }
-
+    
+    public void testPreviousMonthの生成() {
+        MonthFactory factory = new MonthFactory(new Date());
+        PreviousMonth previousMonth = factory.createPreviousMonth();
+        
+        assertNotNull(previousMonth);
+    }
+    
+    public void testNextMonthの生成() {
+        MonthFactory factory = new MonthFactory(new Date());
+        NextMonth nextMonth = factory.createNextMonth();
+        
+        assertNotNull(nextMonth);
+    }
+    
 }
