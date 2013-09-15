@@ -20,6 +20,6 @@ public class Day {
     public DayOfWeek getDayOfWeek() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(mDate);
-        return DayOfWeek.create(calendar.get(Calendar.DAY_OF_MONTH));
+        return DayOfWeek.create(calendar.get(Calendar.DAY_OF_WEEK));
     }
 }

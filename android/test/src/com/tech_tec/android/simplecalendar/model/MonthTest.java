@@ -52,28 +52,33 @@ public class MonthTest extends AndroidTestCase {
         }
     }
     
-    public void 初日の曜日が取得できる() {
+    public void test日にちを順に取得できる() {
         Calendar calendar = Calendar.getInstance();
-
-        calendar.set(2013, 9 - 1, 1); //初日が日曜日
-        assertEquals(DayOfWeek.SUNDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 7 - 1, 1); //初日が月曜日
-        assertEquals(DayOfWeek.MONDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 1 - 1, 1); //初日が火曜日
-        assertEquals(DayOfWeek.TUESDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 5 - 1, 1); //初日が水曜日
-        assertEquals(DayOfWeek.WEDNESDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 8 - 1, 1); //初日が木曜日
-        assertEquals(DayOfWeek.THURSDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 11 - 1, 1); //初日が金曜日
-        assertEquals(DayOfWeek.FRIDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
-
-        calendar.set(2013, 6 - 1, 1); //初日が土曜日
-        assertEquals(DayOfWeek.SATURDAY, new Month(calendar.getTime()).getFirstDayOfWeek());
+        calendar.set(2013, 9 - 1, 1);
+        
+        Month month = new Month(calendar.getTime());
+        Iterator<Day> iterator = month.getDays();
+        for (int i = 0; i < 30; i++) { //2013年9月は30日まで
+            Day day = iterator.next();
+            assertEquals(Integer.valueOf(i + 1), Integer.valueOf(day.toInt()));
+        }
     }
+    
+    public void test初日の曜日が取得できる() {
+        doTest初日の曜日が取得できる(2013, 9, DayOfWeek.SUNDAY);
+        doTest初日の曜日が取得できる(2013, 7, DayOfWeek.MONDAY);
+        doTest初日の曜日が取得できる(2013, 1, DayOfWeek.TUESDAY);
+        doTest初日の曜日が取得できる(2013, 5, DayOfWeek.WEDNESDAY);
+        doTest初日の曜日が取得できる(2013, 8, DayOfWeek.THURSDAY);
+        doTest初日の曜日が取得できる(2013,11, DayOfWeek.FRIDAY);
+        doTest初日の曜日が取得できる(2013, 6, DayOfWeek.SATURDAY);
+    }
+    private void doTest初日の曜日が取得できる(int year, int month, DayOfWeek expected) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, 1);
+
+        Month monthObj = new Month(calendar.getTime());
+        assertEquals(expected, monthObj.getFirstDayOfWeek());
+    }
+    
 }
