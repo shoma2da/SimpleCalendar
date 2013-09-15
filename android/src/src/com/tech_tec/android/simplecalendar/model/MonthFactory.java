@@ -5,13 +5,17 @@ import java.util.Date;
 public class MonthFactory {
     
     private Date mBasisDate;
+    private Month mMonthCache;
     
     public MonthFactory(Date basisDate) {
         mBasisDate = basisDate;
     }
     
     public Month createMonth() {
-        return new Month(mBasisDate);
+        if (mMonthCache == null) {
+            mMonthCache = new Month(mBasisDate);
+        }
+        return mMonthCache;
     }
     
 }
