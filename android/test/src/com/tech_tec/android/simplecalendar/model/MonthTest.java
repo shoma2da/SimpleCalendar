@@ -1,6 +1,7 @@
 package com.tech_tec.android.simplecalendar.model;
 
 import java.util.Calendar;
+import java.util.Iterator;
 
 import android.test.AndroidTestCase;
 
@@ -41,6 +42,13 @@ public class MonthTest extends AndroidTestCase {
             
             assertEquals(max, month.daysSize());
             calendar.add(Calendar.MONTH, 1);
+            
+            //Iteratorもテスト
+            Iterator<Day> daysIterator = month.getDays();
+            for (int j = 0; j < max; j++) {
+                daysIterator.next();
+            }
+            assertFalse(daysIterator.hasNext());
         }
     }
     
