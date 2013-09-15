@@ -1,6 +1,8 @@
 package com.tech_tec.android.simplecalendar.model;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Iterator;
 
 import junit.framework.TestCase;
 
@@ -24,4 +26,20 @@ public class NextMonthTest extends TestCase {
         }
     }
     
+
+    public void test生成時のカウント分の日付が取得できる() {
+        for (int i = 0; i < 10; i++) {
+            doTest生成時のカウント分の日付が取得できる(i);
+        }
+    }
+    public void doTest生成時のカウント分の日付が取得できる(int count) {
+        Month month = new Month(new Date());
+        NextMonth nextMonth = new NextMonth(month, count);
+        Iterator<Day> iterator = nextMonth.getDays();
+        
+        for (int i = 0; i < count; i++) {
+            iterator.next();
+        }
+        assertFalse(iterator.hasNext());
+    }
 }
