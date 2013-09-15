@@ -7,12 +7,8 @@ import java.util.Iterator;
 
 public class Month {
     
-    public static final int MAX_DAYS_COUNT = 7 * 6;
-    
     private Date mToday;
     private ArrayList<Day> days         = new ArrayList<Day>();
-    
-    Month() {}
     
     public Month(Date today) {
         setDays(today);
@@ -25,7 +21,7 @@ public class Month {
     public int daysSize() {
         return this.days.size();
     }
-    void setDays(Date today) {
+    private void setDays(Date today) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);
         calendar.set(Calendar.DAY_OF_MONTH, 1);

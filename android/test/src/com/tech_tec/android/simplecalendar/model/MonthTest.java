@@ -37,8 +37,7 @@ public class MonthTest extends AndroidTestCase {
         //1970年から2100年までをテスト(130年✕12ヶ月)
         for (int i = 0; i < (130 * 12); i++) {
             int max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-            Month month = new Month();
-            month.setDays(calendar.getTime());
+            Month month = new Month(calendar.getTime());
             
             assertEquals(max, month.daysSize());
             calendar.add(Calendar.MONTH, 1);
