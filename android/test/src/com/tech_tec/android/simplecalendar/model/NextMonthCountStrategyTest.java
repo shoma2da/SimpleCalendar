@@ -15,7 +15,7 @@ public class NextMonthCountStrategyTest extends TestCase {
         doTest曜日に応じて前月の日にちカウントを取得できる(2013, 11, 5);
         doTest曜日に応じて前月の日にちカウントを取得できる(2013, 6, 6);
     }
-    public void doTest曜日に応じて前月の日にちカウントを取得できる(int year, int month, int expected) {
+    private void doTest曜日に応じて前月の日にちカウントを取得できる(int year, int month, int expected) {
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month - 1, 1);
         
@@ -23,4 +23,15 @@ public class NextMonthCountStrategyTest extends TestCase {
         assertEquals(expected, strategy.getPreviousMonthCount());
     }
     
+    public void test前月と今月の日数によって次月のカウントを取得できる() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1970, 0, 1);
+        for (int i = 0; i < 200 * 12; i++) { //200年分をテスト
+            Month month = new Month(calendar.getTime());
+            NextMonthCountStrategy strategy = new NextMonthCountStrategy(month);
+            assertEquals(7 * 6, month.daysSize() + strategy.getNextMonthCount() + strategy.getPreviousMonthCount());
+            
+            calendar.add(Calendar.MONTH, 1);
+        }
+    }
 }

@@ -18,7 +18,9 @@ public class NextMonthCountStrategy {
     }
     
     public int getNextMonthCount() {
-        return 0;
+        int count = mMonth.daysSize();
+        int nextCount = getPreviousMonthCount();
+        return (7 * 6/* 6週間 */) - (count + nextCount);
     }
     
 }
