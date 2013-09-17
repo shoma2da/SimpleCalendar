@@ -6,62 +6,12 @@
     android:layout_height="match_parent"
     >
     
-    <LinearLayout
-        android:orientation="horizontal"
+    <include
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="0.5"
-        >
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="日"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="月"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="火"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="水"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="木"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="金"
-            />
-        <TextView
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="土"
-            />
-    </LinearLayout>
+        layout="@layout/layout_header"
+        />
     
     <TableLayout
         android:layout_width="match_parent"
