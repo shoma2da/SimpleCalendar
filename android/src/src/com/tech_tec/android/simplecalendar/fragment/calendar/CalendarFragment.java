@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
-import org.w3c.dom.Text;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
