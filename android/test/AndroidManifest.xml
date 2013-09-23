@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.src.test"
+    package="com.tech_tec.android.simplecalendar.test"
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="9" />
 
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.example.src" />
+        android:targetPackage="com.tech_tec.android.simplecalendar" />
 
     <application
         android:icon="@drawable/ic_launcher"
