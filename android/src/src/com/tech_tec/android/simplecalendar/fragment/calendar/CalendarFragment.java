@@ -6,21 +6,21 @@ import java.util.Iterator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 
 import com.tech_tec.android.simplecalendar.R;
 import com.tech_tec.android.simplecalendar.model.Day;
+import com.tech_tec.android.simplecalendar.model.DayOfWeek;
 import com.tech_tec.android.simplecalendar.model.Month;
 import com.tech_tec.android.simplecalendar.model.MonthFactory;
 import com.tech_tec.android.simplecalendar.model.NextMonth;
 import com.tech_tec.android.simplecalendar.model.NextMonthCountStrategy;
 import com.tech_tec.android.simplecalendar.model.PreviousMonth;
+import com.tech_tec.android.simplecalendar.view.DayView;
 
 public class CalendarFragment extends Fragment {
     
@@ -38,7 +38,7 @@ public class CalendarFragment extends Fragment {
         PreviousMonth previousMonth = factory.createPreviousMonth();
         NextMonth nextMonth = factory.createNextMonth();
         
-        ArrayList<TextView> dayTexts = new ArrayList<TextView>();
+        ArrayList<DayView> dayTexts = new ArrayList<DayView>();
         
         TableLayout daysTable = (TableLayout)view.findViewById(R.id.table_days);
         int weekCount = daysTable.getChildCount();
@@ -47,32 +47,42 @@ public class CalendarFragment extends Fragment {
             int dayCount = weekLayout.getChildCount();
             
             for (int j = 0; j < dayCount; j++) {
-                TextView daysText = (TextView)weekLayout.getChildAt(j);
+                DayView daysText = (DayView)weekLayout.getChildAt(j);
                 dayTexts.add(daysText);
             }
         }
         
-        Iterator<TextView> textIterator = dayTexts.iterator();
+        Iterator<DayView> textIterator = dayTexts.iterator();
         
         Iterator<Day> prevIterator = previousMonth.getDays();
         while (prevIterator.hasNext()) {
-            TextView textView = textIterator.next();
-            textView.setText("" + prevIterator.next().toInt());
-            Log.d("simple", "prev");
+            DayView textView = textIterator.next();
+            Day day = prevIterator.next();
+            
+            textView.setText("" + day.toInt());
+            textView.setPreviousOrNext();
         }
         
         Iterator<Day> iterator = month.getDays();
         while (iterator.hasNext()) {
-            TextView textView = textIterator.next();
-            textView.setText("" + iterator.next().toInt());
-            Log.d("simple", "this");
+            DayView textView = textIterator.next();
+            Day day = iterator.next();
+            
+            textView.setText("" + day.toInt());
+            if (day.getDayOfWeek() == DayOfWeek.SUNDAY) {
+                textView.setSunday();
+            } else if (day.getDayOfWeek() == DayOfWeek.SATURDAY) {
+                textView.setSaturday();
+            }
         }
         
         Iterator<Day> nextIterator = nextMonth.getDays();
         while (nextIterator.hasNext()) {
-            TextView textView = textIterator.next();
-            textView.setText("" + nextIterator.next().toInt());
-            Log.d("simple", "next");
+            DayView textView = textIterator.next();
+            Day day = nextIterator.next();
+            
+            textView.setText("" + day.toInt());
+            textView.setPreviousOrNext();
         }
         //------------
         
