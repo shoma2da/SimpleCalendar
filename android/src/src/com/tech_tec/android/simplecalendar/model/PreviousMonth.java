@@ -39,7 +39,7 @@ public class PreviousMonth {
         ArrayList<Day> days = new ArrayList<Day>();
         for (int i = 0; i < mCount; i++) {
             days.add(new Day(calendar.getTime()));
-            calendar.set(Calendar.DATE, -1);
+            calendar.add(Calendar.DATE, -1);
         }
         Collections.reverse(days);
         return days.iterator();
