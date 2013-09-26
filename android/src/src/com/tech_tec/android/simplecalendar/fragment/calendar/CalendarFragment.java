@@ -6,12 +6,14 @@ import java.util.Iterator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import com.somewhere.util.HolidayCalendar;
 import com.tech_tec.android.simplecalendar.R;
 import com.tech_tec.android.simplecalendar.model.Day;
 import com.tech_tec.android.simplecalendar.model.DayOfWeek;
@@ -73,6 +75,10 @@ public class CalendarFragment extends Fragment {
                 textView.setSunday();
             } else if (day.getDayOfWeek() == DayOfWeek.SATURDAY) {
                 textView.setSaturday();
+            }
+            String holiday = HolidayCalendar.getHolidyName(month.getYear(), month.getMonth(), day.toInt());
+            if (holiday != null) {
+                textView.setSunday();
             }
         }
         
