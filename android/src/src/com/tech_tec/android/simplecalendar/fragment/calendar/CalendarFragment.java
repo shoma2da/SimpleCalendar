@@ -6,7 +6,6 @@ import java.util.Iterator;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,7 @@ import com.tech_tec.android.simplecalendar.view.DayView;
 
 public class CalendarFragment extends Fragment {
     
-    public static final String ARG_BASIS_TIME_IN_MILLIS = "basis_time_in_millis";
+    public static final String ARG_BASIS_DATE = "basis_date";
     
     public CalendarFragment() { }
     
@@ -34,8 +33,11 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar, null);
         
+        //引数の取得
+        Date date = (Date)getArguments().getSerializable(ARG_BASIS_DATE);
+        
         //TODO 仮実装→未テスト
-        MonthFactory factory = new MonthFactory(new Date(), new NextMonthCountStrategy());
+        MonthFactory factory = new MonthFactory(date, new NextMonthCountStrategy());
         Month month = factory.createMonth();
         PreviousMonth previousMonth = factory.createPreviousMonth();
         NextMonth nextMonth = factory.createNextMonth();
