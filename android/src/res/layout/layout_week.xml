@@ -8,41 +8,48 @@
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
     <com.tech_tec.android.simplecalendar.view.DayView
         android:layout_height="match_parent"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:gravity="center"
+        android:background="@drawable/day_border"
         />
 </TableRow>
